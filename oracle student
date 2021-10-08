@@ -1,0 +1,31 @@
+create table STUDENT 
+(
+    id number(10) not null  ,
+    rollno number(10) Primary key, 
+    name varchar(255), 
+    class varchar(255), 
+    birthdate varchar2(20)
+);
+
+create table COURSE 
+(
+    co_no number(10) not null Primary key , 
+    co_name varchar (255) , 
+    max_marks number(10) check(max_marks==100), 
+    pass_marks number(10)check(pass_marks>=35)
+);
+
+create table SC 
+(
+    rollno number(10) REFERENCES STUDENT(rollno) ,
+    co_no REFERENCES COURSE(co_no), 
+    marks number(10)
+);
+
+
+insert into STUDENT values (&id,&rollno,'&name','&class','&birthdate');
+insert into COURSE values (&co_no,'&co_name', &max_marks, &pass_marks);
+insert into sc values (&rollno,&courseno,&marks);
+
+
+alter table COURSE modify co_name varchar (10);
