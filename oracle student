@@ -29,3 +29,5 @@ insert into sc values (&rollno,&courseno,&marks);
 
 
 alter table COURSE modify co_name varchar (10);
+
+create table t1(email varchar(25) check (email like '%@%.___'));
